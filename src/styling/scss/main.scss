@@ -1,0 +1,13 @@
+@import "./config";
+@import "./resets";
+
+
+#root {
+  min-height: 100vh;
+  display: block;
+  height: auto;
+  width: auto;
+  position: relative;
+  color: rgba(0, 0, 0, 0.795) !important;
+  // @include flexcenter;
+}

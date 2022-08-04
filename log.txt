@@ -1,0 +1,7 @@
+v1.0
+
+needs to fix bug in filter not working, wrong initial page number, not displaying results without clicking page number occasionally
+
+bugs
+
+all bugs fixed

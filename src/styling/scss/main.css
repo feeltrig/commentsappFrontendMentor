@@ -1,0 +1,375 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+html {
+  min-height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "poppins";
+}
+
+.showRecipeContainer {
+  display: flex;
+  align-items: center;
+  background: #f3f3f3;
+  position: relative;
+  flex-flow: column;
+  max-height: calc(100vh - 5rem);
+  overflow-y: scroll;
+}
+.showRecipeContainer .norecipe {
+  padding: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+  background-color: blue;
+  margin: 2rem;
+  border-radius: 1.5rem;
+}
+.showRecipeContainer .searchbar {
+  margin-block: 1rem;
+  border: none;
+  padding: 1rem;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.075);
+  background: rgb(255, 255, 255);
+}
+.showRecipeContainer .searchbar input {
+  margin-inline: 1rem;
+  border: 0.1rem solid blue;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  padding-inline: 1rem;
+  margin-block: 0.5rem;
+}
+.showRecipeContainer .searchbar .filtertext {
+  margin-inline: 0.5rem;
+}
+.showRecipeContainer .searchbar button {
+  border: none;
+  padding-inline: 0.75rem;
+  padding-block: 0.25rem;
+  border-radius: 0.5rem;
+}
+.showRecipeContainer .recipecontainer,
+.showRecipeContainer .searchrecipebox {
+  margin: 0;
+  padding: 0;
+  display: block;
+  padding-inline: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
+  background: #f3f3f3;
+}
+.showRecipeContainer .recipecontainer .recipenumber,
+.showRecipeContainer .searchrecipebox .recipenumber {
+  color: yellow;
+  padding-inline: 1rem;
+  padding-block: 0.25rem;
+  background: rgb(55, 44, 219);
+}
+.showRecipeContainer .recipecontainer .deletebtn,
+.showRecipeContainer .searchrecipebox .deletebtn {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: block;
+  min-width: 100%;
+  text-align: center;
+  padding-block: 1rem;
+  background-color: rgb(253, 255, 158);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.349);
+  transition: background 200ms;
+}
+.showRecipeContainer .recipecontainer .deletebtn:hover,
+.showRecipeContainer .searchrecipebox .deletebtn:hover {
+  background: rgb(87, 207, 243);
+}
+.showRecipeContainer .recipecontainer {
+  margin-inline: auto;
+  width: max-content;
+}
+.showRecipeContainer .recipebox {
+  display: flex;
+  background: blueviolet;
+  color: white;
+  padding: 1rem;
+  position: relative;
+  flex-flow: row;
+  position: relative;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.521);
+  box-shadow: inset 0 0 10px 1px rgba(0, 0, 0, 0.521);
+  word-wrap: break-word;
+}
+.showRecipeContainer .recipebox .recipecontext {
+  display: flex;
+  flex-flow: column;
+  margin-right: 2rem;
+}
+.showRecipeContainer .recipebox .recipecontext div {
+  padding-block: 1rem;
+}
+.showRecipeContainer .recipebox .recipedata {
+  display: flex;
+  flex-flow: column;
+}
+.showRecipeContainer .recipebox .recipedata div {
+  padding-block: 1rem;
+}
+.showRecipeContainer .recipebox .recipedata > div > div {
+  padding-block: 0.25rem;
+}
+.showRecipeContainer .recipebox .recipedata > div > div:nth-child(1) {
+  padding-top: 0;
+}
+.showRecipeContainer .pages {
+  display: inline-block;
+  text-align: center;
+  width: 2rem;
+  margin-inline: 0.25rem;
+  background: rgba(250, 243, 243, 0.836);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.349);
+  transition: background 200ms;
+}
+.showRecipeContainer .pages:hover {
+  background: rgb(255, 251, 8);
+}
+
+.maincontainer {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.navcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  background: linear-gradient(to right, rgb(54, 73, 200), rgb(54, 21, 150));
+  position: relative;
+}
+.navcontainer .navlink {
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  margin-inline: 1rem;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+  text-align: center;
+  height: 100%;
+}
+.navcontainer .navlink:hover {
+  color: gold;
+}
+
+@media (max-width: 375px) {
+  .navcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    background: rgb(7, 221, 132);
+    padding-block: 1rem;
+  }
+  .navcontainer .navlink {
+    padding: 0;
+    margin: 0;
+    color: white;
+    border: none;
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+.addRecipeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  background-color: rgba(255, 0, 212, 0.137);
+  padding: 1rem;
+}
+.addRecipeContainer .recipenamecontainer,
+.addRecipeContainer .recipetimecontainer,
+.addRecipeContainer .ingredientsContainer {
+  justify-content: left;
+  width: 40rem;
+  display: flex;
+  gap: 3rem;
+  flex-flow: row;
+}
+.addRecipeContainer .recipenamecontainer .inputfield,
+.addRecipeContainer .recipetimecontainer .inputfield,
+.addRecipeContainer .ingredientsContainer .inputfield {
+  margin-left: auto;
+}
+.addRecipeContainer .ingredientsContainer .ingredientsData {
+  margin-left: auto;
+  max-width: max-content;
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+}
+.addRecipeContainer .ingredientsContainer .ingredientsData .ingredientsList {
+  padding: 0.5rem;
+  margin-block: 1rem;
+  box-shadow: inset 0 0 1rem 0.1rem rgba(0, 0, 0, 0.116);
+  border-radius: 0.5rem;
+  width: 20rem;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+.addRecipeContainer .ingredientsContainer .ingredientsData .inlinebuttons {
+  display: flex;
+  flex-flow: row;
+  gap: 0.2rem;
+  flex-grow: 0;
+  max-width: max-content;
+}
+.addRecipeContainer .ingredientsContainer .ingredientsData .textareadiv {
+  max-width: max-content;
+}
+.addRecipeContainer .ingredientsContainer .ingredientsData .textareadiv textarea {
+  resize: none;
+  width: 20rem;
+  padding: 0.25rem;
+  vertical-align: top;
+  height: 5rem;
+}
+.addRecipeContainer .inputfield {
+  margin-left: auto;
+}
+.addRecipeContainer input {
+  border: none;
+  width: 20rem;
+  border-radius: 5px;
+  box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.032);
+}
+.addRecipeContainer button {
+  margin-block: 0.2rem;
+  color: rgb(255, 255, 255);
+  background: rgb(1, 20, 19);
+  border: none;
+  padding-inline: 0.75rem;
+  padding-block: 0.5rem;
+  border-radius: 0.2rem;
+}
+.addRecipeContainer .submitbtn {
+  margin: 0;
+}
+
+@media (max-width: 500px) {
+  .addRecipeContainer {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-flow: column;
+    background-color: rgba(255, 0, 212, 0.137);
+    padding: 0;
+    position: relative;
+    min-height: calc(100vh - 3.5rem);
+  }
+  .addRecipeContainer .recipenamecontainer,
+.addRecipeContainer .recipetimecontainer,
+.addRecipeContainer .ingredientsContainer {
+    justify-content: left;
+    width: auto;
+    display: flex;
+    gap: 0;
+    flex-flow: column;
+    flex-wrap: wrap;
+    padding-block: 1rem;
+    margin-inline: 2rem;
+  }
+  .addRecipeContainer .recipenamecontainer p,
+.addRecipeContainer .recipetimecontainer p,
+.addRecipeContainer .ingredientsContainer p {
+    margin-block: 0.2rem;
+  }
+  .addRecipeContainer .recipenamecontainer .inputfield,
+.addRecipeContainer .recipetimecontainer .inputfield,
+.addRecipeContainer .ingredientsContainer .inputfield {
+    margin-left: 0;
+  }
+  .addRecipeContainer .ingredientsContainer .ingredientsData {
+    margin-left: 0;
+    max-width: max-content;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+  }
+  .addRecipeContainer .ingredientsContainer .ingredientsData .ingredientsList {
+    padding: 0.5rem;
+    margin-block: 1rem;
+    box-shadow: inset 0 0 1rem 0.1rem rgba(0, 0, 0, 0.116);
+    border-radius: 0.5rem;
+    width: 20rem;
+    word-wrap: break-word;
+    overflow: hidden;
+  }
+  .addRecipeContainer .ingredientsContainer .ingredientsData .inlinebuttons {
+    display: flex;
+    flex-flow: row;
+    gap: 0.2rem;
+    flex-grow: 0;
+    max-width: max-content;
+  }
+  .addRecipeContainer .ingredientsContainer .ingredientsData .textareadiv {
+    max-width: max-content;
+  }
+  .addRecipeContainer .ingredientsContainer .ingredientsData .textareadiv textarea {
+    resize: none;
+    width: 20rem;
+    padding: 0.25rem;
+    vertical-align: top;
+    height: 5rem;
+  }
+  .addRecipeContainer .inputfield {
+    margin-left: auto;
+  }
+  .addRecipeContainer input {
+    border: none;
+    width: 20rem;
+    border-radius: 5px;
+    box-shadow: 0 0 1rem 0.1rem rgba(0, 0, 0, 0.032);
+  }
+  .addRecipeContainer button {
+    margin-block: 0.2rem;
+    color: rgb(255, 255, 255);
+    background: rgb(1, 20, 19);
+    border: none;
+    padding-inline: 0.75rem;
+    padding-block: 0.5rem;
+    border-radius: 0.2rem;
+  }
+  .addRecipeContainer .submitbtn {
+    margin: 0;
+  }
+}
+.home {
+  padding: 1rem;
+}
+.home .homebtn {
+  margin-block: 1rem;
+}
+
+#root {
+  min-height: 100vh;
+  display: block;
+  height: auto;
+  width: auto;
+  position: relative;
+  color: rgba(0, 0, 0, 0.795) !important;
+}
+
+/*# sourceMappingURL=main.css.map */
