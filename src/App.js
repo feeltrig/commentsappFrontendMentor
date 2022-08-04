@@ -1,10 +1,10 @@
-import Maincontainer from "./components/maincontainer";
+import CommentsContainer from "./components/commentscontainer";
 
 function App() {
   return (
-    <>
-      <Maincontainer />
-    </>
+    <div className="mainapp">
+      <CommentsContainer />
+    </div>
   );
 }
 

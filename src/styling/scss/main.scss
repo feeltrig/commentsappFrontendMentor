@@ -1,6 +1,9 @@
 @import "./config";
 @import "./resets";
-
+@import "../scss/commentscontainer/commentscontainer.scss";
+@import "../scss/comments/comments.scss";
+@import "../scss/reply/reply.scss";
+@import "../scss/postcomment/postcomment.scss";
 
 #root {
   min-height: 100vh;
@@ -8,6 +11,15 @@
   height: auto;
   width: auto;
   position: relative;
+  box-sizing: border-box;
   color: rgba(0, 0, 0, 0.795) !important;
   // @include flexcenter;
+}
+
+.mainapp {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background: $Lightgray;
 }

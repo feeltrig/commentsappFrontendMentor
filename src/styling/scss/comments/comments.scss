@@ -1,0 +1,92 @@
+.comments {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  box-shadow: 0 0 2px 2px #f3f3f3a4;
+  margin-bottom: 1.5rem;
+  background: white;
+  border-radius: 0.5rem;
+
+  // left container
+  .leftcommentsection {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    // buttons
+    & > div {
+      text-align: center;
+      width: 2rem;
+      height: 2rem;
+      background: $Verylightgray;
+      color: $Moderateblue;
+      font-weight: 600;
+
+      display: grid;
+      place-items: center;
+    }
+
+    & > .plus {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+
+    & > .minus {
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+  }
+
+  // right container
+  .rightcommentsection {
+    .commentheader {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      // name
+      name {
+        font-weight: 600;
+        color: $Darkblue;
+      }
+
+      // time
+      time {
+        color: $GrayishBlue;
+      }
+
+      // reply and delete
+      reply,
+      delete {
+        color: $Moderateblue;
+        margin-left: auto;
+        font-weight: 600;
+      }
+
+      // edit
+      edittag {
+        color: $Moderateblue;
+        font-weight: 600;
+      }
+
+      // delete
+      delete {
+        color: $SoftRed;
+        margin-right: 1rem;
+      }
+
+      // avatar
+      .avatar {
+        width: 2rem;
+        height: 2rem;
+        background-image: url("../../design/images/avatars/image-amyrobson.png");
+        background-size: cover;
+        margin-right: 0.5rem;
+      }
+    }
+
+    .commenttext {
+      color: $GrayishBlue;
+    }
+  }
+}
