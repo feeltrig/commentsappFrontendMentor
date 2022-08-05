@@ -1,15 +1,23 @@
 import React from "react";
-import Reply from "./reply";
 import Commentsdialog from "../components/commentsdialog";
-import PostComment from "./postcomment";
+
+// database
+import commentdata from "../design/data.json";
 
 const CommentsContainer = () => {
+  console.log(commentdata);
   return (
-    <div className="commentscontainer">
-      <Commentsdialog username={"samual"} />
-      <Reply username={"iamtheuser"} />
-      <PostComment />
-    </div>
+    <>
+      <div className="commentscontainer">
+        {commentdata.comments.map((comments) => {
+          return (
+            <>
+              <Commentsdialog userobject={comments} />
+            </>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

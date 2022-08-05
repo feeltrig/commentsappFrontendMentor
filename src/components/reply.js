@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import Commentsdialog from "./commentsdialog";
+import Commenttemplate from "./commenttemplate";
 
-const Reply = ({ username }) => {
-  // INIT
-  // user validation
-  const [isUser, setIsUser] = useState(true);
+const Reply = ({ userobject }) => {
+  console.log(userobject);
   return (
     <div className="reply">
-      <Commentsdialog isUser={isUser} username={username} />
+      <Commenttemplate userobject={userobject} />
     </div>
   );
 };

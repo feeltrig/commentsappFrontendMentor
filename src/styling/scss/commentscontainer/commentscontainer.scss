@@ -1,5 +1,6 @@
 .commentscontainer {
   margin-inline: 2rem;
-  min-height: 100vh;
+  max-height: calc(100vh - 10rem);
   padding-block: 1.5rem;
+  overflow-y: scroll;
 }

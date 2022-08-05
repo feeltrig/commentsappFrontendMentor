@@ -16,8 +16,9 @@ html {
 
 .commentscontainer {
   margin-inline: 2rem;
-  min-height: 100vh;
+  max-height: calc(100vh - 10rem);
   padding-block: 1.5rem;
+  overflow-y: scroll;
 }
 
 .comments {
@@ -147,6 +148,7 @@ html {
   position: relative;
   height: 100%;
   width: 100%;
+  min-height: 100vh;
   box-sizing: border-box;
   background: hsl(223deg, 19%, 93%);
 }
