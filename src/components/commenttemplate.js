@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import replyicon from "../design/images/icon-reply.svg";
 import editicon from "../design/images/icon-edit.svg";
 import deleteicon from "../design/images/icon-delete.svg";
+import { useDispatch, useSelector } from "react-redux";
 
-const Commenttemplate = ({ userobject }) => {
+// ACTIONS
+import { handleScore } from "../appState/mainAppStateSlice";
+
+const Commenttemplate = ({ commentobject, indexkey }) => {
   // INIT
   // input object
   // score
-  const { createdAt, content, score, user } = userobject;
+
+  console.log(indexkey);
+
+  const { createdAt, content, score, user } = commentobject;
   const [currentScore, setcurrentScore] = useState(score);
+  const dispatch = useDispatch();
 
   // UPADTE SCORE
   const updateScore = (e) => {
@@ -16,13 +24,12 @@ const Commenttemplate = ({ userobject }) => {
 
     if (value == "plus") {
       setcurrentScore((prev) => prev + 1);
+      dispatch(handleScore({ type: "plus", indexkey }));
     } else if (value == "minus") {
       setcurrentScore((prev) => prev - 1);
+      dispatch(handleScore("minus"));
     }
   };
-
-  // UPDATE STATE TO CUURENT SCORE
-  const updateStateScore = () => {};
 
   return (
     <div className="comments">
@@ -42,7 +49,7 @@ const Commenttemplate = ({ userobject }) => {
           <div className="tag"></div>
           <time>{createdAt}</time>
 
-          {userobject && (
+          {true && (
             <div className="replybtn">
               <img src={replyicon} style={{ marginInline: "0.5rem" }} />
               Reply

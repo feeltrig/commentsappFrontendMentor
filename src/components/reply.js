@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Commenttemplate from "./commenttemplate";
 
-const Reply = ({ userobject }) => {
+const Reply = ({ commentobject, indexkey }) => {
   return (
     <div className="reply">
-      <Commenttemplate userobject={userobject} />
+      <Commenttemplate indexkey={indexkey} commentobject={commentobject} />
     </div>
   );
 };

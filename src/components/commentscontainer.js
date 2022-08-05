@@ -1,17 +1,23 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Commentsdialog from "../components/commentsdialog";
 
 // database
 import commentdata from "../design/data.json";
 
-const CommentsContainer = ({ commentobject }) => {
+const CommentsContainer = () => {
+  const mainAppState = useSelector((state) => {
+    return state.postComment;
+  });
+
+  console.log(mainAppState);
   return (
     <>
       <div className="commentscontainer">
-        {commentobject.comments.map((comments, index) => {
+        {mainAppState.comments.map((commentobject, index) => {
           return (
             <div key={index}>
-              <Commentsdialog userobject={comments} />
+              <Commentsdialog indexkey={index} commentobject={commentobject} />
             </div>
           );
         })}

@@ -1,10 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import avatar from ".././design/images/avatars/image-ramsesmiron.webp";
+
+// ACTIONS
+import { addComment } from "../appState/mainAppStateSlice";
 
 const PostComment = ({ commentobject, setAppState }) => {
   // INIT
   // comment state
   const [myComment, setmyComment] = useState("");
+  const mainAppState = useSelector((state) => {
+    return state.postComment;
+  });
+  const dispatch = useDispatch();
 
   // HANDLE INPUT
   const handleInput = (e) => {
@@ -18,9 +26,9 @@ const PostComment = ({ commentobject, setAppState }) => {
   // APPEND NEW COMMENT
   const appendComment = (comment) => {
     // generate id
-    const id = commentobject.comments.length + 1;
+    const id = mainAppState.comments.length + 1;
     const createdAt = "1 month ago";
-    const user = commentobject.currentUser;
+    const user = mainAppState.currentUser;
 
     // GENERATE OBJECT TO APPEND
     const payload = {
@@ -33,12 +41,14 @@ const PostComment = ({ commentobject, setAppState }) => {
     };
 
     // UPDATING STATE
-    setAppState((prev) => {
-      const newstate = { ...prev };
-      newstate.comments.push(payload);
-      console.log(newstate);
-      return newstate;
-    });
+    dispatch(addComment(payload));
+
+    // setAppState((prev) => {
+    //   const newstate = { ...prev };
+    //   newstate.comments.push(payload);
+    //   console.log(newstate);
+    //   return newstate;
+    // });
 
     // cleaners
     setmyComment("");
