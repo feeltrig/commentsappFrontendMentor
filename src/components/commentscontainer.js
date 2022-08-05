@@ -4,16 +4,15 @@ import Commentsdialog from "../components/commentsdialog";
 // database
 import commentdata from "../design/data.json";
 
-const CommentsContainer = () => {
-  console.log(commentdata);
+const CommentsContainer = ({ commentobject }) => {
   return (
     <>
       <div className="commentscontainer">
-        {commentdata.comments.map((comments) => {
+        {commentobject.comments.map((comments, index) => {
           return (
-            <>
+            <div key={index}>
               <Commentsdialog userobject={comments} />
-            </>
+            </div>
           );
         })}
       </div>

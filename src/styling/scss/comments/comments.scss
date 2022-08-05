@@ -14,7 +14,9 @@
     align-items: center;
 
     // buttons
-    & > div {
+    & > div,
+    button {
+      border-color: transparent;
       text-align: center;
       width: 2rem;
       height: 2rem;
@@ -39,13 +41,16 @@
 
   // right container
   .rightcommentsection {
+    width: 100%;
+
     .commentheader {
       display: flex;
       gap: 0.5rem;
       align-items: center;
+      width: 100%;
 
       // name
-      name {
+      .name {
         font-weight: 600;
         color: $Darkblue;
       }
@@ -56,10 +61,9 @@
       }
 
       // reply and delete
-      reply,
-      delete {
+      .replybtn {
         color: $Moderateblue;
-        margin-left: auto;
+        margin-left: auto !important;
         font-weight: 600;
       }
 

@@ -35,7 +35,9 @@ html {
   flex-flow: column;
   align-items: center;
 }
-.comments .leftcommentsection > div {
+.comments .leftcommentsection > div,
+.comments .leftcommentsection button {
+  border-color: transparent;
   text-align: center;
   width: 2rem;
   height: 2rem;
@@ -53,22 +55,25 @@ html {
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
+.comments .rightcommentsection {
+  width: 100%;
+}
 .comments .rightcommentsection .commentheader {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  width: 100%;
 }
-.comments .rightcommentsection .commentheader name {
+.comments .rightcommentsection .commentheader .name {
   font-weight: 600;
   color: hsl(212deg, 24%, 26%);
 }
 .comments .rightcommentsection .commentheader time {
   color: hsl(211deg, 10%, 45%);
 }
-.comments .rightcommentsection .commentheader reply,
-.comments .rightcommentsection .commentheader delete {
+.comments .rightcommentsection .commentheader .replybtn {
   color: hsl(238deg, 40%, 52%);
-  margin-left: auto;
+  margin-left: auto !important;
   font-weight: 600;
 }
 .comments .rightcommentsection .commentheader edittag {
