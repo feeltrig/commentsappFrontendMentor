@@ -10,15 +10,16 @@ const CommentsContainer = () => {
     return state.postComment;
   });
 
-  console.log(mainAppState);
   return (
     <>
       <div className="commentscontainer">
         {mainAppState.comments.map((commentobject, index) => {
           return (
-            <div key={index}>
-              <Commentsdialog indexkey={index} commentobject={commentobject} />
-            </div>
+            <Commentsdialog
+              key={index}
+              indexkey={index}
+              commentobject={commentobject}
+            />
           );
         })}
       </div>

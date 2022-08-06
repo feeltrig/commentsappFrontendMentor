@@ -7,14 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 // ACTIONS
 import { handleScore } from "../appState/mainAppStateSlice";
 
-const Commenttemplate = ({ commentobject, indexkey }) => {
+const Commenttemplate = ({ commentobject }) => {
   // INIT
   // input object
   // score
 
-  console.log(indexkey);
-
-  const { createdAt, content, score, user } = commentobject;
+  const { createdAt, content, score, user, id } = commentobject;
   const [currentScore, setcurrentScore] = useState(score);
   const dispatch = useDispatch();
 
@@ -23,11 +21,11 @@ const Commenttemplate = ({ commentobject, indexkey }) => {
     const value = e.target.value;
 
     if (value == "plus") {
-      setcurrentScore((prev) => prev + 1);
-      dispatch(handleScore({ type: "plus", indexkey }));
+      // setcurrentScore((prev) => prev + 1);
+      dispatch(handleScore({ type: "plus", id }));
     } else if (value == "minus") {
-      setcurrentScore((prev) => prev - 1);
-      dispatch(handleScore("minus"));
+      // setcurrentScore((prev) => prev - 1);
+      dispatch(handleScore({ type: "minus", id }));
     }
   };
 

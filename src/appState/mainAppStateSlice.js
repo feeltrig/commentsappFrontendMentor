@@ -1,6 +1,10 @@
 // JSON
 import commentobject from "../design/data.json";
-const { createSlice } = require("@reduxjs/toolkit");
+// FUNTIONS
+import deleteCommentfn from "../functions/deleteCommentfn";
+import handleScorefn from "../functions/handleScorefn";
+
+const { createSlice, current } = require("@reduxjs/toolkit");
 
 export const mainAppStateSlice = createSlice({
   name: "mainAppStateSlice",
@@ -11,9 +15,12 @@ export const mainAppStateSlice = createSlice({
       prevState.comments.push(action.payload);
     },
     handleScore: (prevState, action) => {
-      if (action.payload == "plus") {
-      } else if (action.payload == "minus") {
-      }
+      const { type, id } = action.payload;
+      handleScorefn(prevState.comments, id, type);
+      console.log(current(prevState));
+    },
+    handleDelete: (prevState, id) => {
+      deleteCommentfn(prevState.comments, id);
     },
   },
 });

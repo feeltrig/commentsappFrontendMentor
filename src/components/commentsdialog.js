@@ -4,12 +4,12 @@ import { useSelector } from "react-redux";
 import Reply from "../components/reply";
 import Commenttemplate from "./commenttemplate";
 
-const Commentsdialog = ({ commentobject, indexkey }) => {
+const Commentsdialog = ({ commentobject }) => {
   return (
     <>
-      <Commenttemplate indexkey={indexkey} commentobject={commentobject} />
+      <Commenttemplate commentobject={commentobject} />
       {commentobject.replies.map((item, index) => {
-        return <Reply key={index} indexkey={indexkey} commentobject={item} />;
+        return <Reply key={index} commentobject={item} />;
       })}
     </>
   );

@@ -8,3 +8,4 @@ init
 4. add main app state to update new comments
 5. added feature to change score
 6. setup redux toolkit.
+7. change score of targetting comment/reply in state
