@@ -18,12 +18,15 @@ export const mainAppStateSlice = createSlice({
       const { type, id } = action.payload;
       handleScorefn(prevState.comments, id, type);
     },
-    handleDelete: (prevState, id) => {
+    deleteComment: (prevState, action) => {
+      const { id } = action.payload;
+
       deleteCommentfn(prevState.comments, id);
     },
   },
 });
 
 // EXPORTS
-export const { addComment, handleScore } = mainAppStateSlice.actions;
+export const { addComment, handleScore, deleteComment } =
+  mainAppStateSlice.actions;
 export default mainAppStateSlice.reducer;

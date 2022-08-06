@@ -1,3 +1,5 @@
+import { current } from "@reduxjs/toolkit";
+
 const deleteCommentfn = (state, id) => {
   let indexcounter = -1;
 
@@ -9,11 +11,17 @@ const deleteCommentfn = (state, id) => {
   // if i found the object
   if (indexcounter !== -1) {
     state.splice(indexcounter, 1);
-  } else if (state.replies) {
-    deleteCommentfn(state.replies, id);
-  } else {
     return null;
   }
+
+  // find if replies exists, find the index and change the score
+  state.forEach((element, index) => {
+    if (element.replies) {
+      deleteCommentfn(element.replies, id);
+    }
+  });
+
+  return null;
 };
 
 export default deleteCommentfn;

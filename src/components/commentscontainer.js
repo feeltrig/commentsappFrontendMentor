@@ -6,9 +6,12 @@ import Commenttemplate from "./commenttemplate";
 import Reply from "./reply";
 
 const CommentsContainer = () => {
+  // INIT
+  // main app state
   const mainAppState = useSelector((state) => {
     return state.postComment;
   });
+  const { currentUser } = mainAppState;
 
   return (
     <>
@@ -17,12 +20,19 @@ const CommentsContainer = () => {
         {mainAppState.comments.map((commentobject, outerindex) => {
           return (
             <div key={commentobject.id}>
-              <Commenttemplate commentobject={commentobject} />
+              <Commenttemplate
+                commentobject={commentobject}
+                currentUser={currentUser}
+              />
               {/* map replies */}
               {commentobject.replies &&
                 commentobject.replies.map((cobj, replyindex) => {
                   return (
-                    <Commenttemplate isReply={true} commentobject={cobj} />
+                    <Commenttemplate
+                      isReply={true}
+                      commentobject={cobj}
+                      currentUser={currentUser}
+                    />
                   );
                 })}
             </div>

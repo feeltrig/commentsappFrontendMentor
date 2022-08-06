@@ -76,13 +76,14 @@ html {
   margin-left: auto !important;
   font-weight: 600;
 }
-.comments .rightcommentsection .commentheader edittag {
+.comments .rightcommentsection .commentheader .editclass {
   color: hsl(238deg, 40%, 52%);
   font-weight: 600;
 }
-.comments .rightcommentsection .commentheader delete {
+.comments .rightcommentsection .commentheader .deleteclass {
   color: hsl(358deg, 79%, 66%);
-  margin-right: 1rem;
+  margin-right: 0.25rem;
+  margin-left: auto;
 }
 .comments .rightcommentsection .commentheader .avatar {
   width: 2rem;

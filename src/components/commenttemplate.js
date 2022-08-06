@@ -11,8 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 // ACTIONS
 // change score
 import { handleScore } from "../appState/mainAppStateSlice";
+import { deleteComment } from "../appState/mainAppStateSlice";
 
-const Commenttemplate = ({ commentobject, isReply }) => {
+const Commenttemplate = ({ commentobject, isReply, currentUser }) => {
   // INIT
   // input object
   // dispatch funtion
@@ -28,6 +29,11 @@ const Commenttemplate = ({ commentobject, isReply }) => {
     } else if (value == "minus") {
       dispatch(handleScore({ type: "minus", id }));
     }
+  };
+
+  // DELETE CURRENT USER COMMENT
+  const handleDelete = () => {
+    dispatch(deleteComment({ id }));
   };
 
   return (
@@ -48,22 +54,22 @@ const Commenttemplate = ({ commentobject, isReply }) => {
           <div className="tag"></div>
           <time>{createdAt}</time>
 
-          {true && (
+          {currentUser.username !== user.username && (
             <div className="replybtn">
               <img src={replyicon} style={{ marginInline: "0.5rem" }} />
               Reply
             </div>
           )}
-          {false && (
+          {currentUser.username == user.username && (
             <>
-              <delete>
+              <div className="deleteclass" onClick={handleDelete}>
                 <img src={deleteicon} style={{ marginInline: "0.5rem" }} />
                 Delete
-              </delete>
-              <edittag>
+              </div>
+              <div className="editclass">
                 <img src={editicon} style={{ marginInline: "0.5rem" }} />
                 Edit
-              </edittag>
+              </div>
             </>
           )}
         </header>

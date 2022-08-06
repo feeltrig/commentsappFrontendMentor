@@ -68,15 +68,16 @@
       }
 
       // edit
-      edittag {
+      .editclass {
         color: $Moderateblue;
         font-weight: 600;
       }
 
       // delete
-      delete {
+      .deleteclass {
         color: $SoftRed;
-        margin-right: 1rem;
+        margin-right: 0.25rem;
+        margin-left: auto;
       }
 
       // avatar
