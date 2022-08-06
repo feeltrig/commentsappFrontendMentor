@@ -1,3 +1,5 @@
+import { current } from "@reduxjs/toolkit";
+
 const handleScorefn = (state, id, action) => {
   let indexcounter = -1;
 
@@ -13,11 +15,16 @@ const handleScorefn = (state, id, action) => {
     } else if (action == "minus") {
       state[indexcounter].score--;
     }
-  } else if (state.replies) {
-    handleScorefn(state.replies, id);
-  } else {
-    return null;
   }
+
+  // find if replies exists, find the index and change the score
+  state.forEach((element, index) => {
+    if (element.replies) {
+      handleScorefn(element.replies, id, action);
+    }
+  });
+
+  return null;
 };
 
 export default handleScorefn;

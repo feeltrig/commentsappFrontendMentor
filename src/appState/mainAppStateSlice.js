@@ -17,7 +17,6 @@ export const mainAppStateSlice = createSlice({
     handleScore: (prevState, action) => {
       const { type, id } = action.payload;
       handleScorefn(prevState.comments, id, type);
-      console.log(current(prevState));
     },
     handleDelete: (prevState, id) => {
       deleteCommentfn(prevState.comments, id);

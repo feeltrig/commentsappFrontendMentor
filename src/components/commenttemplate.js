@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+
+// ICONS
 import replyicon from "../design/images/icon-reply.svg";
 import editicon from "../design/images/icon-edit.svg";
 import deleteicon from "../design/images/icon-delete.svg";
+
+// REDUX IMPORTS
 import { useDispatch, useSelector } from "react-redux";
 
 // ACTIONS
+// change score
 import { handleScore } from "../appState/mainAppStateSlice";
 
-const Commenttemplate = ({ commentobject }) => {
+const Commenttemplate = ({ commentobject, isReply }) => {
   // INIT
   // input object
-  // score
-
+  // dispatch funtion
   const { createdAt, content, score, user, id } = commentobject;
-  const [currentScore, setcurrentScore] = useState(score);
   const dispatch = useDispatch();
 
   // UPADTE SCORE
@@ -21,21 +24,19 @@ const Commenttemplate = ({ commentobject }) => {
     const value = e.target.value;
 
     if (value == "plus") {
-      // setcurrentScore((prev) => prev + 1);
       dispatch(handleScore({ type: "plus", id }));
     } else if (value == "minus") {
-      // setcurrentScore((prev) => prev - 1);
       dispatch(handleScore({ type: "minus", id }));
     }
   };
 
   return (
-    <div className="comments">
+    <div className={isReply ? "comments reply" : "comments"}>
       <div className="leftcommentsection">
         <button className="plus" value="plus" onClick={updateScore}>
           +
         </button>
-        <div className="score">{currentScore}</div>
+        <div className="score">{score}</div>
         <button className="minus" value="minus" onClick={updateScore}>
           -
         </button>
