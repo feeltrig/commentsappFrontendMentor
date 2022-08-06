@@ -34,7 +34,6 @@ const PostComment = ({ commentobject, setAppState }) => {
     const payload = {
       content: myComment,
       createdAt,
-      id,
       score: 0,
       replies: [],
       user,
@@ -42,13 +41,6 @@ const PostComment = ({ commentobject, setAppState }) => {
 
     // UPDATING STATE
     dispatch(addComment(payload));
-
-    // setAppState((prev) => {
-    //   const newstate = { ...prev };
-    //   newstate.comments.push(payload);
-    //   console.log(newstate);
-    //   return newstate;
-    // });
 
     // cleaners
     setmyComment("");

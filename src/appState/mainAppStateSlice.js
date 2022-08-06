@@ -1,6 +1,7 @@
 // JSON
 import commentobject from "../design/data.json";
 // FUNTIONS
+import addCommentfn from "../functions/addCommentfn";
 import deleteCommentfn from "../functions/deleteCommentfn";
 import handleScorefn from "../functions/handleScorefn";
 
@@ -12,7 +13,12 @@ export const mainAppStateSlice = createSlice({
 
   reducers: {
     addComment: (prevState, action) => {
-      prevState.comments.push(action.payload);
+      const maxindex = addCommentfn(prevState.comments, action.payload);
+      if (maxindex) {
+        action.payload.id = maxindex;
+        prevState.comments.push(action.payload);
+      }
+      // prevState.comments.push(action.payload);
     },
     handleScore: (prevState, action) => {
       const { type, id } = action.payload;
