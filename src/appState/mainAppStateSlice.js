@@ -4,6 +4,7 @@ import commentobject from "../design/data.json";
 import addCommentfn from "../functions/addCommentfn";
 import deleteCommentfn from "../functions/deleteCommentfn";
 import handleScorefn from "../functions/handleScorefn";
+import addReplyfn from "../functions/addReplyfn";
 
 const { createSlice, current } = require("@reduxjs/toolkit");
 
@@ -12,27 +13,46 @@ export const mainAppStateSlice = createSlice({
   initialState: commentobject,
 
   reducers: {
+    // ADD COMMENT TO GROUP OF COMMENTS
     addComment: (prevState, action) => {
-      const maxindex = addCommentfn(prevState.comments, action.payload);
+      // find max index and assign it to new payload object
+      const maxindex = addCommentfn(prevState.comments);
+
       if (maxindex) {
         action.payload.id = maxindex;
         prevState.comments.push(action.payload);
       }
-      // prevState.comments.push(action.payload);
     },
+
+    // CHANGE SCORE OF COMMENTS
     handleScore: (prevState, action) => {
       const { type, id } = action.payload;
       handleScorefn(prevState.comments, id, type);
     },
+
+    // DELETE USER COMMENT
     deleteComment: (prevState, action) => {
       const { id } = action.payload;
-
       deleteCommentfn(prevState.comments, id);
+    },
+
+    // ADD REPLY TO ANY COMMENT THAN USER'S
+    handleReply: (prevState, action) => {
+      const maxindex = addCommentfn(prevState.comments);
+      if (maxindex) {
+        action.payload.payload.id = maxindex;
+        addReplyfn(
+          prevState.comments,
+          action.payload.replyid,
+          action.payload.payload,
+          action.payload.replyingTo
+        );
+      }
     },
   },
 });
 
 // EXPORTS
-export const { addComment, handleScore, deleteComment } =
+export const { addComment, handleScore, deleteComment, handleReply } =
   mainAppStateSlice.actions;
 export default mainAppStateSlice.reducer;

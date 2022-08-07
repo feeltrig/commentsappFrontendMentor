@@ -15,7 +15,7 @@ function App() {
     <Provider store={store}>
       <div className="mainapp">
         <CommentsContainer />
-        <PostComment commentobject={commentobject} setAppState={setAppState} />
+        <PostComment isRelative={false} />
       </div>
     </Provider>
   );

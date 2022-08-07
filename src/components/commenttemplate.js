@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // ICONS
 import replyicon from "../design/images/icon-reply.svg";
@@ -13,10 +13,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleScore } from "../appState/mainAppStateSlice";
 import { deleteComment } from "../appState/mainAppStateSlice";
 
-const Commenttemplate = ({ commentobject, isReply, currentUser }) => {
+const Commenttemplate = ({
+  commentobject,
+  isReply,
+  currentUser,
+  addreply,
+  setaddreply,
+  setisRelative,
+}) => {
   // INIT
   // input object
   // dispatch funtion
+  // add reply
   const { createdAt, content, score, user, id } = commentobject;
   const dispatch = useDispatch();
 
@@ -38,6 +46,7 @@ const Commenttemplate = ({ commentobject, isReply, currentUser }) => {
 
   return (
     <div className={isReply ? "comments reply" : "comments"}>
+      {/* left section */}
       <div className="leftcommentsection">
         <button className="plus" value="plus" onClick={updateScore}>
           +
@@ -47,19 +56,30 @@ const Commenttemplate = ({ commentobject, isReply, currentUser }) => {
           -
         </button>
       </div>
+
+      {/* right section */}
       <div className="rightcommentsection">
+        {/* header */}
         <header className="commentheader">
           <div className="avatar"></div>
           <div className="name">{user.username}</div>
           <div className="tag"></div>
           <time>{createdAt}</time>
 
+          {/* reply */}
           {currentUser.username !== user.username && (
-            <div className="replybtn">
+            <div
+              className="replybtn"
+              onClick={() => {
+                setaddreply((prev) => !prev);
+              }}
+            >
               <img src={replyicon} style={{ marginInline: "0.5rem" }} />
               Reply
             </div>
           )}
+
+          {/* delete and edit */}
           {currentUser.username == user.username && (
             <>
               <div className="deleteclass" onClick={handleDelete}>

@@ -4,10 +4,13 @@ import avatar from ".././design/images/avatars/image-ramsesmiron.webp";
 
 // ACTIONS
 import { addComment } from "../appState/mainAppStateSlice";
+import { handleReply } from "../appState/mainAppStateSlice";
 
-const PostComment = ({ commentobject, setAppState }) => {
+const PostComment = ({ isRelative, replyid, replyingTo }) => {
   // INIT
   // comment state
+
+  // main app state
   const [myComment, setmyComment] = useState("");
   const mainAppState = useSelector((state) => {
     return state.postComment;
@@ -40,14 +43,17 @@ const PostComment = ({ commentobject, setAppState }) => {
     };
 
     // UPDATING STATE
-    dispatch(addComment(payload));
-
+    if (!isRelative) {
+      dispatch(addComment(payload));
+    } else if (isRelative) {
+      dispatch(handleReply({ payload, replyid, replyingTo }));
+    }
     // cleaners
     setmyComment("");
   };
 
   return (
-    <div className="postcomment">
+    <div className={isRelative ? "postcommentrelative" : "postcomment"}>
       <div className="avatar">
         <img src={avatar} style={{ width: "3rem" }} />
       </div>

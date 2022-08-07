@@ -1,6 +1,6 @@
 import { current } from "@reduxjs/toolkit";
 
-const deleteCommentfn = (state, id) => {
+const addReplyfn = (state, id, payload, replyingTo) => {
   let indexcounter = -1;
 
   // find object in current array
@@ -11,17 +11,19 @@ const deleteCommentfn = (state, id) => {
   // find if replies exists, find the index and change the score
   state.forEach((element, index) => {
     if (element.replies) {
-      deleteCommentfn(element.replies, id);
+      addReplyfn(element.replies, id);
     }
   });
 
   // if i found the object
   if (indexcounter !== -1) {
-    state.splice(indexcounter, 1);
+    payload.replyingTo = replyingTo;
+    state[indexcounter].replies.push(payload);
+
     return null;
   }
 
   return null;
 };
 
-export default deleteCommentfn;
+export default addReplyfn;

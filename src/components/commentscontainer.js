@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 // COMPONENTS
 import Commenttemplate from "./commenttemplate";
 import Reply from "./reply";
+import PostComment from "../components/postcomment";
+import CommentGroup from "./commentGroup";
 
 const CommentsContainer = () => {
   // INIT
@@ -20,16 +22,18 @@ const CommentsContainer = () => {
         {mainAppState.comments.map((commentobject, outerindex) => {
           return (
             <div key={commentobject.id}>
-              <Commenttemplate
+              <CommentGroup
                 commentobject={commentobject}
                 currentUser={currentUser}
               />
+
               {/* map replies */}
               {commentobject.replies &&
                 commentobject.replies.map((cobj, replyindex) => {
                   return (
-                    <Commenttemplate
+                    <CommentGroup
                       isReply={true}
+                      key={commentobject.id}
                       commentobject={cobj}
                       currentUser={currentUser}
                     />
