@@ -15,11 +15,19 @@ const CommentsContainer = () => {
   });
   const { currentUser } = mainAppState;
 
+  // SORTING
+  const sortedState = [...mainAppState.comments];
+  sortedState.sort((a, b) => {
+    return b.score - a.score;
+  });
+
+  // SORT REPLIES
+
   return (
     <>
       <div className="commentscontainer">
         {/* map main comments */}
-        {mainAppState.comments.map((commentobject, outerindex) => {
+        {sortedState.map((commentobject, outerindex) => {
           return (
             <div key={commentobject.id}>
               <CommentGroup
@@ -28,12 +36,13 @@ const CommentsContainer = () => {
               />
 
               {/* map replies */}
+
               {commentobject.replies &&
                 commentobject.replies.map((cobj, replyindex) => {
                   return (
                     <CommentGroup
                       isReply={true}
-                      key={commentobject.id}
+                      key={replyindex}
                       commentobject={cobj}
                       currentUser={currentUser}
                     />

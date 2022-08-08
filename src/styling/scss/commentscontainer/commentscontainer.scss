@@ -3,4 +3,10 @@
   max-height: calc(100vh - 10rem);
   padding-block: 1.5rem;
   overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
 }

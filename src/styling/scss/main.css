@@ -19,6 +19,10 @@ html {
   max-height: calc(100vh - 10rem);
   padding-block: 1.5rem;
   overflow-y: scroll;
+  scrollbar-width: none;
+}
+.commentscontainer::-webkit-scrollbar {
+  display: none;
 }
 
 .comments {
