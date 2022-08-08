@@ -1,0 +1,45 @@
+.deleteCommentOverlay {
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.336);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+
+  //   centering
+  display: grid;
+  place-items: center;
+
+  h2 {
+    @include resetmp();
+  }
+
+  .deleteCommentModal {
+    width: 40ch;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+
+    .confirmationbuttons {
+      display: flex;
+      flex-flow: row;
+      flex-grow: 1;
+      gap: 1rem;
+      justify-content: stretch;
+
+      div {
+        width: 100%;
+        text-align: center;
+        border: none;
+        padding-block: 0.75rem;
+        padding-inline: 1.75rem;
+        background: $Moderateblue;
+        color: white;
+        font-weight: 600;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+}

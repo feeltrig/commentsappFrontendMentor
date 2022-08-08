@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// COMPONENTS
+import DeleteCommentOverlay from "../components/overlays/deleteCommentOverlay";
+
 // ICONS
 import replyicon from "../design/images/icon-reply.svg";
 import editicon from "../design/images/icon-edit.svg";
@@ -25,8 +28,10 @@ const Commenttemplate = ({
   // input object
   // dispatch funtion
   // add reply
+  // delete modal
   const { createdAt, content, score, user, id } = commentobject;
   const dispatch = useDispatch();
+  const [openDeleteModal, setopenDeleteModal] = useState(false);
 
   // UPADTE SCORE
   const updateScore = (e) => {
@@ -46,7 +51,7 @@ const Commenttemplate = ({
 
   // DELETE CURRENT USER COMMENT
   const handleDelete = () => {
-    dispatch(deleteComment({ id }));
+    setopenDeleteModal(true);
   };
 
   return (
@@ -87,6 +92,12 @@ const Commenttemplate = ({
           {/* delete and edit */}
           {currentUser.username == user.username && (
             <>
+              {openDeleteModal && (
+                <DeleteCommentOverlay
+                  deleteCommentId={id}
+                  setopenDeleteModal={setopenDeleteModal}
+                />
+              )}
               <div className="deleteclass" onClick={handleDelete}>
                 <img src={deleteicon} style={{ marginInline: "0.5rem" }} />
                 Delete

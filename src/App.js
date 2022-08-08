@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CommentsContainer from "./components/commentscontainer";
 import PostComment from "./components/postcomment";
+import Overlays from "./components/overlays/Overlays";
 
 // JSON
 import commentobject from "./design/data.json";
@@ -15,6 +16,8 @@ function App() {
     <Provider store={store}>
       <div className="mainapp">
         <CommentsContainer />
+        {/* modal overlays */}
+        <Overlays />
         <PostComment isRelative={false} />
       </div>
     </Provider>

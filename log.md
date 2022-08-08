@@ -12,3 +12,5 @@ init
 8. all delete function for user comment only
 9. add reply function for user
 10. add feature to edit own comments
+11. add modal for delete comment
+12. arrange comments according to highest score
