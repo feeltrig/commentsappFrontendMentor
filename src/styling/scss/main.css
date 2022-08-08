@@ -79,11 +79,13 @@ html {
 .comments .rightcommentsection .commentheader .editclass {
   color: hsl(238deg, 40%, 52%);
   font-weight: 600;
+  cursor: pointer;
 }
 .comments .rightcommentsection .commentheader .deleteclass {
   color: hsl(358deg, 79%, 66%);
   margin-right: 0.25rem;
   margin-left: auto;
+  cursor: pointer;
 }
 .comments .rightcommentsection .commentheader .avatar {
   width: 2rem;

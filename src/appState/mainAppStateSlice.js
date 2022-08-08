@@ -5,6 +5,7 @@ import addCommentfn from "../functions/addCommentfn";
 import deleteCommentfn from "../functions/deleteCommentfn";
 import handleScorefn from "../functions/handleScorefn";
 import addReplyfn from "../functions/addReplyfn";
+import editCommentfn from "../functions/editCommentfn";
 
 const { createSlice, current } = require("@reduxjs/toolkit");
 
@@ -36,6 +37,12 @@ export const mainAppStateSlice = createSlice({
       deleteCommentfn(prevState.comments, id);
     },
 
+    // EDIT USER COMMENT
+    handleEditComment: (prevState, action) => {
+      const { id, content } = action.payload;
+      editCommentfn(prevState.comments, id, content);
+    },
+
     // ADD REPLY TO ANY COMMENT THAN USER'S
     handleReply: (prevState, action) => {
       const maxindex = addCommentfn(prevState.comments);
@@ -53,6 +60,11 @@ export const mainAppStateSlice = createSlice({
 });
 
 // EXPORTS
-export const { addComment, handleScore, deleteComment, handleReply } =
-  mainAppStateSlice.actions;
+export const {
+  addComment,
+  handleScore,
+  deleteComment,
+  handleReply,
+  handleEditComment,
+} = mainAppStateSlice.actions;
 export default mainAppStateSlice.reducer;

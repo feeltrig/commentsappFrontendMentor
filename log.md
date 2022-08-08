@@ -11,3 +11,4 @@ init
 7. change score of targetting comment/reply in state
 8. all delete function for user comment only
 9. add reply function for user
+10. add feature to edit own comments

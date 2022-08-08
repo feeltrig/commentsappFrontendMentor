@@ -19,7 +19,7 @@ const Commenttemplate = ({
   currentUser,
   addreply,
   setaddreply,
-  setisRelative,
+  setEditComment,
 }) => {
   // INIT
   // input object
@@ -37,6 +37,11 @@ const Commenttemplate = ({
     } else if (value == "minus") {
       dispatch(handleScore({ type: "minus", id }));
     }
+  };
+
+  // EDIT USER COMMENT
+  const handleEditComment = () => {
+    setEditComment(true);
   };
 
   // DELETE CURRENT USER COMMENT
@@ -75,7 +80,7 @@ const Commenttemplate = ({
               }}
             >
               <img src={replyicon} style={{ marginInline: "0.5rem" }} />
-              Reply
+              {addreply ? "Close" : "Reply"}
             </div>
           )}
 
@@ -86,7 +91,7 @@ const Commenttemplate = ({
                 <img src={deleteicon} style={{ marginInline: "0.5rem" }} />
                 Delete
               </div>
-              <div className="editclass">
+              <div className="editclass" onClick={handleEditComment}>
                 <img src={editicon} style={{ marginInline: "0.5rem" }} />
                 Edit
               </div>

@@ -71,6 +71,7 @@
       .editclass {
         color: $Moderateblue;
         font-weight: 600;
+        cursor: pointer;
       }
 
       // delete
@@ -78,6 +79,7 @@
         color: $SoftRed;
         margin-right: 0.25rem;
         margin-left: auto;
+        cursor: pointer;
       }
 
       // avatar

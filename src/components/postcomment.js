@@ -3,10 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import avatar from ".././design/images/avatars/image-ramsesmiron.webp";
 
 // ACTIONS
-import { addComment } from "../appState/mainAppStateSlice";
+import { addComment, handleEditComment } from "../appState/mainAppStateSlice";
 import { handleReply } from "../appState/mainAppStateSlice";
 
-const PostComment = ({ isRelative, replyid, replyingTo }) => {
+const PostComment = ({
+  isRelative,
+  replyid,
+  replyingTo,
+  update,
+  setEditComment,
+  setaddreply,
+}) => {
   // INIT
   // comment state
 
@@ -45,10 +52,25 @@ const PostComment = ({ isRelative, replyid, replyingTo }) => {
     // UPDATING STATE
     if (!isRelative) {
       dispatch(addComment(payload));
-    } else if (isRelative) {
+    } else if (isRelative && !update) {
       dispatch(handleReply({ payload, replyid, replyingTo }));
     }
+
+    // close if its a reply box
+    if (isRelative) {
+      setaddreply(false);
+    }
+
     // cleaners
+    setmyComment("");
+    return;
+  };
+
+  // EDIT USER COMMENT
+  const editCommentHandler = () => {
+    if (isRelative && update) {
+      dispatch(handleEditComment({ content: myComment, id: replyid }));
+    }
     setmyComment("");
   };
 
@@ -57,12 +79,29 @@ const PostComment = ({ isRelative, replyid, replyingTo }) => {
       <div className="avatar">
         <img src={avatar} style={{ width: "3rem" }} />
       </div>
+
+      {/* comment input */}
       <div className="textinput">
         <textarea name="userComment" value={myComment} onChange={handleInput} />
       </div>
-      <button type="button" onClick={appendComment} className="sendbtn">
-        SEND
-      </button>
+
+      {/* update and send button */}
+      {!update ? (
+        <button type="button" onClick={appendComment} className="sendbtn">
+          SEND
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => {
+            editCommentHandler();
+            setEditComment(false);
+          }}
+          className="sendbtn"
+        >
+          UPDATE
+        </button>
+      )}
     </div>
   );
 };
