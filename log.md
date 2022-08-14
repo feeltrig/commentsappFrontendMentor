@@ -14,3 +14,6 @@ init
 10. add feature to edit own comments
 11. add modal for delete comment
 12. arrange comments according to highest score
+13. make limit to add or subtract score
+14. make replies sort too
+15. make able to reply to replies
