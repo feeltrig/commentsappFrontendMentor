@@ -21,33 +21,17 @@ const CommentsContainer = () => {
     return b.score - a.score;
   });
 
-  // SORT REPLIES
-
   return (
     <>
       <div className="commentscontainer">
         {/* map main comments */}
-        {sortedState.map((commentobject, outerindex) => {
+        {sortedState.map((commentobject) => {
           return (
             <div key={commentobject.id}>
               <CommentGroup
                 commentobject={commentobject}
                 currentUser={currentUser}
               />
-
-              {/* map replies */}
-
-              {commentobject.replies &&
-                commentobject.replies.map((cobj, replyindex) => {
-                  return (
-                    <CommentGroup
-                      isReply={true}
-                      key={replyindex}
-                      commentobject={cobj}
-                      currentUser={currentUser}
-                    />
-                  );
-                })}
             </div>
           );
         })}

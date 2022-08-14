@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import avatar from ".././design/images/avatars/image-ramsesmiron.webp";
 
@@ -13,16 +13,21 @@ const PostComment = ({
   update,
   setEditComment,
   setaddreply,
+  commentcontent,
 }) => {
   // INIT
   // comment state
-
   // main app state
   const [myComment, setmyComment] = useState("");
   const mainAppState = useSelector((state) => {
     return state.postComment;
   });
   const dispatch = useDispatch();
+
+  // SET CONTENT OF INITIAL STATE
+  useEffect(() => {
+    return update ? setmyComment(commentcontent) : setmyComment("");
+  }, []);
 
   // HANDLE INPUT
   const handleInput = (e) => {
@@ -34,9 +39,8 @@ const PostComment = ({
   };
 
   // APPEND NEW COMMENT
-  const appendComment = (comment) => {
+  const appendComment = () => {
     // generate id
-    const id = mainAppState.comments.length + 1;
     const createdAt = "1 month ago";
     const user = mainAppState.currentUser;
 
@@ -52,17 +56,26 @@ const PostComment = ({
     // UPDATING STATE
     if (!isRelative) {
       dispatch(addComment(payload));
+      setmyComment("");
+
+      return;
     } else if (isRelative && !update) {
       dispatch(handleReply({ payload, replyid, replyingTo }));
+      setmyComment("");
+      setaddreply(false);
+
+      return;
     }
 
     // close if its a reply box
-    if (isRelative) {
-      setaddreply(false);
-    }
+    // if (isRelative) {
+    //   setaddreply(false);
+    //   setmyComment("");
+
+    //   return;
+    // }
 
     // cleaners
-    setmyComment("");
     return;
   };
 
@@ -70,19 +83,26 @@ const PostComment = ({
   const editCommentHandler = () => {
     if (isRelative && update) {
       dispatch(handleEditComment({ content: myComment, id: replyid }));
+      setmyComment("");
+      setaddreply(false);
+      return;
     }
-    setmyComment("");
   };
 
   return (
     <div className={isRelative ? "postcommentrelative" : "postcomment"}>
       <div className="avatar">
-        <img src={avatar} style={{ width: "3rem" }} />
+        <img src={avatar} alt="profilephoto" style={{ width: "3rem" }} />
       </div>
 
       {/* comment input */}
       <div className="textinput">
-        <textarea name="userComment" value={myComment} onChange={handleInput} />
+        <textarea
+          name="userComment"
+          aria-label="commentarea"
+          value={myComment}
+          onChange={handleInput}
+        />
       </div>
 
       {/* update and send button */}

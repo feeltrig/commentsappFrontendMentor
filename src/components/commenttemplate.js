@@ -55,6 +55,7 @@ const Commenttemplate = ({
   };
 
   return (
+    // set reply styles if is a reply
     <div className={isReply ? "comments reply" : "comments"}>
       {/* left section */}
       <div className="leftcommentsection">
@@ -84,12 +85,17 @@ const Commenttemplate = ({
                 setaddreply((prev) => !prev);
               }}
             >
-              <img src={replyicon} style={{ marginInline: "0.5rem" }} />
+              {/* change text after clicking reply button to close */}
+              <img
+                src={replyicon}
+                alt="replyicon"
+                style={{ marginInline: "0.5rem" }}
+              />
               {addreply ? "Close" : "Reply"}
             </div>
           )}
 
-          {/* delete and edit */}
+          {/* delete and edit if its current user*/}
           {currentUser.username == user.username && (
             <>
               {openDeleteModal && (
@@ -99,17 +105,30 @@ const Commenttemplate = ({
                 />
               )}
               <div className="deleteclass" onClick={handleDelete}>
-                <img src={deleteicon} style={{ marginInline: "0.5rem" }} />
+                <img
+                  src={deleteicon}
+                  alt="deleteicon"
+                  style={{ marginInline: "0.5rem" }}
+                />
                 Delete
               </div>
               <div className="editclass" onClick={handleEditComment}>
-                <img src={editicon} style={{ marginInline: "0.5rem" }} />
+                <img
+                  src={editicon}
+                  alt="editicon"
+                  style={{ marginInline: "0.5rem" }}
+                />
                 Edit
               </div>
             </>
           )}
         </header>
-        <p className="commenttext">{content}</p>
+        <div className="commenttext">
+          <div className="replyingTo">
+            {commentobject?.replyingTo && `@${commentobject.replyingTo} `}
+          </div>
+          {content}
+        </div>
       </div>
     </div>
   );

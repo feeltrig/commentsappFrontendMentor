@@ -7,8 +7,6 @@ const DeleteCommentOverlay = ({ setopenDeleteModal, deleteCommentId }) => {
   // dispatcher
   const dispatch = useDispatch();
 
-  console.log(deleteCommentId);
-
   return (
     <div className="deleteCommentOverlay">
       <div className="deleteCommentModal">

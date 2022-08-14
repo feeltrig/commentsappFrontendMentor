@@ -12,13 +12,22 @@ import { Provider } from "react-redux";
 
 function App() {
   const [appState, setAppState] = useState(commentobject);
+
   return (
     <Provider store={store}>
       <div className="mainapp">
         <CommentsContainer />
         {/* modal overlays */}
         <Overlays />
-        <PostComment isRelative={false} />
+        <PostComment
+          isRelative={false}
+          replyid={null}
+          replyingTo={null}
+          update={false}
+          setEditComment={null}
+          setaddreply={null}
+          commentcontent={null}
+        />
       </div>
     </Provider>
   );

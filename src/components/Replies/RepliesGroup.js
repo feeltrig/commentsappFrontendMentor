@@ -1,27 +1,19 @@
 import React, { useState } from "react";
-import Commenttemplate from "./commenttemplate";
-import PostComment from "./postcomment";
-import RepliesContainer from "./Replies/RepliesContainer";
+import Commenttemplate from "../commenttemplate";
+import PostComment from "../postcomment";
 
-const CommentGroup = ({ commentobject, currentUser }) => {
+const RepliesGroup = ({ commentobject, currentUser, parentReplyId }) => {
   const [addreply, setaddreply] = useState(false);
   const [editComment, setEditComment] = useState(false);
-  let sortedReplies = [];
 
-  // SORTED REPLIES
-  if (commentobject.replies) {
-    sortedReplies = [...commentobject.replies];
-    sortedReplies.sort((a, b) => {
-      return b.score - a.score;
-    });
-  }
+  const replyingTo = commentobject.user.username;
 
   return (
     <>
       {/* main outer comment */}
       {!editComment && (
         <Commenttemplate
-          isReply={false}
+          isReply={true}
           commentobject={commentobject}
           currentUser={currentUser}
           addreply={addreply}
@@ -34,7 +26,7 @@ const CommentGroup = ({ commentobject, currentUser }) => {
       {editComment && (
         <PostComment
           replyid={commentobject.id}
-          replyingTo={commentobject.user.username}
+          replyingTo={replyingTo}
           isRelative={true}
           update={true}
           commentcontent={commentobject.content}
@@ -46,23 +38,17 @@ const CommentGroup = ({ commentobject, currentUser }) => {
       {/* reply to current comment */}
       {addreply && (
         <PostComment
-          replyid={commentobject.id}
-          replyingTo={commentobject.user.username}
+          replyid={parentReplyId}
+          replyingTo={replyingTo}
           isRelative={addreply}
           update={false}
+          commentcontent={""}
           setaddreply={setaddreply}
-          commentcontent={commentobject.content}
+          setEditComment={setEditComment}
         />
       )}
-
-      {/* all replies */}
-      <RepliesContainer
-        replies={commentobject.replies}
-        currentUser={currentUser}
-        parentReplyId={commentobject.id}
-      />
     </>
   );
 };
 
-export default CommentGroup;
+export default RepliesGroup;

@@ -11,13 +11,14 @@ const addReplyfn = (state, id, payload, replyingTo) => {
   // find if replies exists, find the index and change the score
   state.forEach((element, index) => {
     if (element.replies) {
-      addReplyfn(element.replies, id);
+      addReplyfn(element.replies, id, payload, replyingTo);
     }
   });
 
   // if i found the object
   if (indexcounter !== -1) {
     payload.replyingTo = replyingTo;
+    // payload.content = `@${replyingTo} ${payload.content}`;
     state[indexcounter].replies.push(payload);
 
     return null;

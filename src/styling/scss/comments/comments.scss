@@ -80,6 +80,7 @@
         margin-right: 0.25rem;
         margin-left: auto;
         cursor: pointer;
+        font-weight: 600;
       }
 
       // avatar
@@ -94,6 +95,14 @@
 
     .commenttext {
       color: $GrayishBlue;
+      margin-block: 1rem;
+
+      .replyingTo {
+        color: $Moderateblue;
+        font-weight: 600;
+        float: left;
+        margin-right: 0.5rem;
+      }
     }
   }
 }
