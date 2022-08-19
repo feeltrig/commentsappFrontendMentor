@@ -6,6 +6,9 @@ import avatar from ".././design/images/avatars/image-ramsesmiron.webp";
 import { addComment, handleEditComment } from "../appState/mainAppStateSlice";
 import { handleReply } from "../appState/mainAppStateSlice";
 
+// FUNCTIONS
+import { getDatefn } from "../functions/getDatefn";
+
 const PostComment = ({
   isRelative,
   replyid,
@@ -24,7 +27,7 @@ const PostComment = ({
   });
   const dispatch = useDispatch();
 
-  // SET CONTENT OF INITIAL STATE
+  // SET CONTENT OF INITIAL STATE FOR EDITING COMMENTS
   useEffect(() => {
     return update ? setmyComment(commentcontent) : setmyComment("");
   }, []);
@@ -41,8 +44,10 @@ const PostComment = ({
   // APPEND NEW COMMENT
   const appendComment = () => {
     // generate id
-    const createdAt = "1 month ago";
+    const createdAt = getDatefn();
     const user = mainAppState.currentUser;
+
+    console.log(createdAt);
 
     // GENERATE OBJECT TO APPEND
     const payload = {
