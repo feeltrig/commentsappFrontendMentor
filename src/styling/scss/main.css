@@ -8,11 +8,12 @@ body {
 html {
   min-height: 100%;
   width: 100%;
+  font-size: 1rem;
 }
 
 @media (max-width: 500px) {
   html {
-    font-size: 14px;
+    font-size: 0.85rem;
   }
 }
 * {
@@ -30,6 +31,11 @@ html {
   display: none;
 }
 
+@media (max-width: 500px) {
+  .commentscontainer {
+    max-height: calc(100vh - 15rem);
+  }
+}
 .comments {
   display: flex;
   padding: 1rem;
@@ -57,6 +63,11 @@ html {
   border-radius: 0.5rem;
   background-color: hsl(228deg, 33%, 97%);
 }
+.comments .leftcommentsection .buttonContainer div {
+  background: hsl(228deg, 33%, 97%);
+  color: hsl(238deg, 40%, 52%);
+  font-weight: 600;
+}
 .comments .leftcommentsection .buttonContainer button {
   border-color: transparent;
   text-align: center;
@@ -71,10 +82,14 @@ html {
 .comments .leftcommentsection .buttonContainer .plus {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+  color: hsl(239deg, 57%, 85%);
+  font-weight: 600;
 }
 .comments .leftcommentsection .buttonContainer .minus {
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  color: hsl(239deg, 57%, 85%);
+  font-weight: 600;
 }
 .comments .rightcommentsection {
   width: 100%;
@@ -250,12 +265,16 @@ html {
   margin-bottom: 1.5rem;
   background: white;
   border-radius: 0.5rem;
+  font-size: 1rem;
   display: flex;
   height: 8rem;
   padding: 1.5rem;
   gap: 1rem;
   align-items: flex-start;
   flex-grow: 1;
+}
+.postcomment .avatarButtonContainer {
+  display: none;
 }
 .postcomment .textinput {
   width: 100%;
@@ -277,8 +296,65 @@ html {
   color: white;
   font-weight: 600;
   border-radius: 0.5rem;
+  font-size: 1rem;
 }
 
+@media (max-width: 500px) {
+  .postcomment {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-inline: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column;
+    height: auto;
+    padding: 1.5rem;
+    gap: 1rem;
+    align-items: flex-start;
+    flex-grow: 1;
+  }
+  .postcomment .avatar {
+    display: none;
+  }
+  .postcomment .avatarButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .postcomment .avatarButtonContainer .avatar {
+    display: flex;
+  }
+  .postcomment .avatarButtonContainer .sendbtn {
+    display: flex;
+  }
+  .postcomment .textinput {
+    width: 100%;
+    height: 100%;
+  }
+  .postcomment .textinput textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+    border-color: rgba(128, 128, 128, 0.616);
+    padding: 1rem;
+  }
+  .postcomment .sendbtn {
+    display: none;
+    margin-left: auto;
+    border: none;
+    padding-block: 0.75rem;
+    padding-inline: 1.75rem;
+    background: hsl(238deg, 40%, 52%);
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+}
 .postcommentrelative {
   position: relative;
   bottom: 0;
@@ -293,6 +369,9 @@ html {
   gap: 1rem;
   align-items: flex-start;
   flex-grow: 1;
+}
+.postcommentrelative .avatarButtonContainer {
+  display: none;
 }
 .postcommentrelative .textinput {
   width: 100%;
@@ -316,6 +395,60 @@ html {
   border-radius: 0.5rem;
 }
 
+@media (max-width: 500px) {
+  .postcommentrelative {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    display: flex;
+    height: auto;
+    flex-flow: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    align-items: flex-start;
+    flex-grow: 1;
+  }
+  .postcommentrelative .avatar {
+    display: none;
+  }
+  .postcommentrelative .avatarButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .postcommentrelative .avatarButtonContainer .avatar {
+    display: flex;
+  }
+  .postcommentrelative .avatarButtonContainer .sendbtn {
+    display: flex;
+  }
+  .postcommentrelative .textinput {
+    width: 100%;
+    height: 100%;
+  }
+  .postcommentrelative .textinput textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+    border-color: rgba(128, 128, 128, 0.616);
+    padding: 1rem;
+  }
+  .postcommentrelative .sendbtn {
+    display: none;
+    margin-left: auto;
+    border: none;
+    padding-block: 0.75rem;
+    padding-inline: 1.75rem;
+    background: hsl(238deg, 40%, 52%);
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+  }
+}
 .deleteCommentOverlay {
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.336);
@@ -375,6 +508,7 @@ html {
   min-height: 100vh;
   box-sizing: border-box;
   background: hsl(223deg, 19%, 93%);
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

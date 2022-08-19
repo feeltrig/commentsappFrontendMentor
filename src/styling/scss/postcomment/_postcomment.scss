@@ -8,12 +8,18 @@
   background: white;
   border-radius: 0.5rem;
 
+  font-size: 1rem;
+
   display: flex;
   height: 8rem;
   padding: 1.5rem;
   gap: 1rem;
   align-items: flex-start;
   flex-grow: 1;
+
+  .avatarButtonContainer {
+    display: none;
+  }
 
   // inputarea
   .textinput {
@@ -38,5 +44,8 @@
     color: white;
     font-weight: 600;
     border-radius: 0.5rem;
+    font-size: 1rem;
   }
 }
+
+@import "./postComment-mobile";

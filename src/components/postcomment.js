@@ -106,6 +106,27 @@ const PostComment = ({
       </div>
 
       {/* update and send button */}
+      <div className="avatarButtonContainer">
+        <div className="avatar">
+          <img src={avatar} alt="profilephoto" style={{ width: "3rem" }} />
+        </div>
+        {!update ? (
+          <button type="button" onClick={appendComment} className="sendbtn">
+            SEND
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              editCommentHandler();
+              setEditComment(false);
+            }}
+            className="sendbtn"
+          >
+            UPDATE
+          </button>
+        )}
+      </div>
       {!update ? (
         <button type="button" onClick={appendComment} className="sendbtn">
           SEND

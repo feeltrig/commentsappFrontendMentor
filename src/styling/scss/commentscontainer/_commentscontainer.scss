@@ -10,3 +10,9 @@
 
   scrollbar-width: none;
 }
+
+@media (max-width: 500px) {
+  .commentscontainer {
+    max-height: calc(100vh - 15rem);
+  }
+}

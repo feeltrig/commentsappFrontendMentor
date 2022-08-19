@@ -31,6 +31,12 @@
       border-radius: 0.5rem;
       background-color: $Verylightgray;
 
+      div {
+        background: $Verylightgray;
+        color: $Moderateblue;
+        font-weight: 600;
+      }
+
       button {
         border-color: transparent;
         text-align: center;
@@ -47,11 +53,15 @@
       .plus {
         border-top-left-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
+        color: $Lightgrayishblue;
+        font-weight: 600;
       }
 
       .minus {
         border-bottom-left-radius: 0.5rem;
         border-bottom-right-radius: 0.5rem;
+        color: $Lightgrayishblue;
+        font-weight: 600;
       }
     }
   }

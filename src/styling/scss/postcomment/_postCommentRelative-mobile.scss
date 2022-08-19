@@ -1,0 +1,62 @@
+@media (max-width: 500px) {
+  .postcommentrelative {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+
+    display: flex;
+    height: auto;
+    flex-flow: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    align-items: flex-start;
+    flex-grow: 1;
+
+    .avatar {
+      display: none;
+    }
+
+    .avatarButtonContainer {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .avatar {
+        display: flex;
+      }
+
+      .sendbtn {
+        display: flex;
+      }
+    }
+    // inputarea
+    .textinput {
+      width: 100%;
+      height: 100%;
+
+      textarea {
+        resize: none;
+        width: 100%;
+        height: 100%;
+        border-color: rgba(128, 128, 128, 0.616);
+        padding: 1rem;
+      }
+    }
+
+    .sendbtn {
+      display: none;
+      margin-left: auto;
+      border: none;
+      padding-block: 0.75rem;
+      padding-inline: 1.75rem;
+      background: $Moderateblue;
+      color: white;
+      font-weight: 600;
+      border-radius: 0.5rem;
+    }
+  }
+}
