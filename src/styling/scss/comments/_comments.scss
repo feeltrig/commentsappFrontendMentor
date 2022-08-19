@@ -13,29 +13,46 @@
     flex-flow: column;
     align-items: center;
 
-    // buttons
-    & > div,
-    button {
-      border-color: transparent;
-      text-align: center;
-      width: 2rem;
-      height: 2rem;
-      background: $Verylightgray;
-      color: $Moderateblue;
-      font-weight: 600;
-
-      display: grid;
-      place-items: center;
+    // hide mobile reply
+    .replybtnMobile {
+      display: none;
     }
 
-    & > .plus {
-      border-top-left-radius: 0.5rem;
-      border-top-right-radius: 0.5rem;
+    // hide mobile delete edit buttons
+    .deleteEditMobile {
+      display: none;
     }
 
-    & > .minus {
-      border-bottom-left-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
+    // button container
+    .buttonContainer {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      border-radius: 0.5rem;
+      background-color: $Verylightgray;
+
+      button {
+        border-color: transparent;
+        text-align: center;
+        width: 2rem;
+        height: 2rem;
+        background: $Verylightgray;
+        color: $Moderateblue;
+        font-weight: 600;
+
+        display: grid;
+        place-items: center;
+      }
+
+      .plus {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
+
+      .minus {
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
     }
   }
 
@@ -106,3 +123,5 @@
     }
   }
 }
+
+@import "./comments-mobile";

@@ -10,6 +10,11 @@ html {
   width: 100%;
 }
 
+@media (max-width: 500px) {
+  html {
+    font-size: 14px;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -39,8 +44,20 @@ html {
   flex-flow: column;
   align-items: center;
 }
-.comments .leftcommentsection > div,
-.comments .leftcommentsection button {
+.comments .leftcommentsection .replybtnMobile {
+  display: none;
+}
+.comments .leftcommentsection .deleteEditMobile {
+  display: none;
+}
+.comments .leftcommentsection .buttonContainer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  background-color: hsl(228deg, 33%, 97%);
+}
+.comments .leftcommentsection .buttonContainer button {
   border-color: transparent;
   text-align: center;
   width: 2rem;
@@ -51,11 +68,11 @@ html {
   display: grid;
   place-items: center;
 }
-.comments .leftcommentsection > .plus {
+.comments .leftcommentsection .buttonContainer .plus {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
-.comments .leftcommentsection > .minus {
+.comments .leftcommentsection .buttonContainer .minus {
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
 }
@@ -110,6 +127,114 @@ html {
   margin-right: 0.5rem;
 }
 
+@media (max-width: 500px) {
+  .comments {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 0 2px 2px rgba(243, 243, 243, 0.6431372549);
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    flex-flow: column;
+  }
+  .comments .leftcommentsection {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    order: 2;
+    justify-content: space-between;
+  }
+  .comments .leftcommentsection .deleteEditMobile {
+    display: flex;
+    gap: 1rem;
+  }
+  .comments .leftcommentsection .replybtnMobile {
+    display: block;
+    color: hsl(238deg, 40%, 52%);
+    margin-left: auto !important;
+    font-weight: 600;
+  }
+  .comments .leftcommentsection .buttonContainer {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: hsl(228deg, 33%, 97%);
+  }
+  .comments .leftcommentsection .buttonContainer button {
+    border-color: transparent;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    background: hsl(228deg, 33%, 97%);
+    color: hsl(238deg, 40%, 52%);
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+  }
+  .comments .leftcommentsection .buttonContainer .plus {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  .comments .leftcommentsection .buttonContainer .minus {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+  .comments .rightcommentsection {
+    width: 100%;
+  }
+  .comments .rightcommentsection .commentheader {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+  }
+  .comments .rightcommentsection .commentheader .name {
+    font-weight: 600;
+    color: hsl(212deg, 24%, 26%);
+  }
+  .comments .rightcommentsection .commentheader time {
+    color: hsl(211deg, 10%, 45%);
+  }
+  .comments .rightcommentsection .commentheader .replybtn {
+    display: none;
+    color: hsl(238deg, 40%, 52%);
+    margin-left: auto !important;
+    font-weight: 600;
+  }
+  .comments .rightcommentsection .commentheader .editclass {
+    display: none;
+    color: hsl(238deg, 40%, 52%);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .comments .rightcommentsection .commentheader .deleteclass {
+    display: none;
+    color: hsl(358deg, 79%, 66%);
+    margin-right: 0.25rem;
+    margin-left: auto;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .comments .rightcommentsection .commentheader .avatar {
+    width: 2rem;
+    height: 2rem;
+    background-image: url("../../design/images/avatars/image-amyrobson.png");
+    background-size: cover;
+    margin-right: 0.5rem;
+  }
+  .comments .rightcommentsection .commenttext {
+    color: hsl(211deg, 10%, 45%);
+    margin-block: 1rem;
+  }
+  .comments .rightcommentsection .commenttext .replyingTo {
+    color: hsl(238deg, 40%, 52%);
+    font-weight: 600;
+    float: left;
+    margin-right: 0.5rem;
+  }
+}
 .reply {
   padding-left: 2.5rem;
   margin-left: 2.5rem;

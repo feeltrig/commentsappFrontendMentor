@@ -59,13 +59,60 @@ const Commenttemplate = ({
     <div className={isReply ? "comments reply" : "comments"}>
       {/* left section */}
       <div className="leftcommentsection">
-        <button className="plus" value="plus" onClick={updateScore}>
-          +
-        </button>
-        <div className="score">{score}</div>
-        <button className="minus" value="minus" onClick={updateScore}>
-          -
-        </button>
+        <div className="buttonContainer">
+          <button className="plus" value="plus" onClick={updateScore}>
+            +
+          </button>
+          <div className="score">{score}</div>
+          <button className="minus" value="minus" onClick={updateScore}>
+            -
+          </button>
+        </div>
+        {/* delete and edit if its current user*/}
+        {currentUser.username == user.username && (
+          <div className="deleteEditMobile">
+            {openDeleteModal && (
+              <DeleteCommentOverlay
+                deleteCommentId={id}
+                setopenDeleteModal={setopenDeleteModal}
+              />
+            )}
+            <div className="deleteclass" onClick={handleDelete}>
+              <img
+                src={deleteicon}
+                alt="deleteicon"
+                style={{ marginInline: "0.5rem" }}
+              />
+              Delete
+            </div>
+            <div className="editclass" onClick={handleEditComment}>
+              <img
+                src={editicon}
+                alt="editicon"
+                style={{ marginInline: "0.5rem" }}
+              />
+              Edit
+            </div>
+          </div>
+        )}
+
+        {/* reply mobile */}
+        {currentUser.username !== user.username && (
+          <div
+            className="replybtn replybtnMobile"
+            onClick={() => {
+              setaddreply((prev) => !prev);
+            }}
+          >
+            {/* change text after clicking reply button to close */}
+            <img
+              src={replyicon}
+              alt="replyicon"
+              style={{ marginInline: "0.5rem" }}
+            />
+            {addreply ? "Close" : "Reply"}
+          </div>
+        )}
       </div>
 
       {/* right section */}

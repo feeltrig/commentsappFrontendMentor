@@ -16,6 +16,7 @@ init
 12. arrange comments according to highest score
 13. make replies sort too
 14. make able to reply to replies
+15. make mobile responsive
 
 <!-- left todos -->
 

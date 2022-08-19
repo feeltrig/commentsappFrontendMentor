@@ -1,0 +1,138 @@
+@media (max-width: 500px) {
+  .comments {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 0 2px 2px #f3f3f3a4;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+
+    flex-flow: column;
+
+    // left container
+    .leftcommentsection {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      order: 2;
+      justify-content: space-between;
+
+      // show mobile delete edit buttons
+      .deleteEditMobile {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .replybtnMobile {
+        display: block;
+        color: $Moderateblue;
+        margin-left: auto !important;
+        font-weight: 600;
+      }
+
+      // button container
+      .buttonContainer {
+        display: flex;
+        flex-flow: row;
+        gap: 1rem;
+        align-items: center;
+        border-radius: 0.5rem;
+        background-color: $Verylightgray;
+
+        button {
+          border-color: transparent;
+          text-align: center;
+          width: 2rem;
+          height: 2rem;
+          background: $Verylightgray;
+          color: $Moderateblue;
+          font-weight: 600;
+
+          display: grid;
+          place-items: center;
+        }
+
+        .plus {
+          border-top-left-radius: 0.5rem;
+          border-top-right-radius: 0.5rem;
+        }
+
+        .minus {
+          border-bottom-left-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+        }
+      }
+    }
+
+    // right container
+    .rightcommentsection {
+      width: 100%;
+
+      // header
+      .commentheader {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        width: 100%;
+
+        // name
+        .name {
+          font-weight: 600;
+          color: $Darkblue;
+        }
+
+        // time
+        time {
+          color: $GrayishBlue;
+        }
+
+        // reply and delete
+        .replybtn {
+          display: none;
+          color: $Moderateblue;
+          margin-left: auto !important;
+          font-weight: 600;
+        }
+
+        // edit
+        .editclass {
+          display: none;
+          color: $Moderateblue;
+          font-weight: 600;
+          cursor: pointer;
+        }
+
+        // delete
+        .deleteclass {
+          display: none;
+          color: $SoftRed;
+          margin-right: 0.25rem;
+          margin-left: auto;
+          cursor: pointer;
+          font-weight: 600;
+        }
+
+        // avatar
+        .avatar {
+          width: 2rem;
+          height: 2rem;
+          background-image: url("../../design/images/avatars/image-amyrobson.png");
+          background-size: cover;
+          margin-right: 0.5rem;
+        }
+      }
+
+      .commenttext {
+        color: $GrayishBlue;
+        margin-block: 1rem;
+
+        .replyingTo {
+          color: $Moderateblue;
+          font-weight: 600;
+          float: left;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
