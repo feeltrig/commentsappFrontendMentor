@@ -21,6 +21,7 @@
       .deleteEditMobile {
         display: flex;
         gap: 1rem;
+        cursor: pointer;
       }
 
       .replybtnMobile {
@@ -28,6 +29,7 @@
         color: $Moderateblue;
         margin-left: auto !important;
         font-weight: 600;
+        cursor: pointer;
       }
 
       // button container
@@ -50,6 +52,7 @@
 
           display: grid;
           place-items: center;
+          cursor: pointer;
         }
 
         .plus {

@@ -47,8 +47,6 @@ const PostComment = ({
     const createdAt = getDatefn();
     const user = mainAppState.currentUser;
 
-    console.log(createdAt);
-
     // GENERATE OBJECT TO APPEND
     const payload = {
       content: myComment,

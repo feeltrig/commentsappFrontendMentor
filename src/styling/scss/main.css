@@ -78,6 +78,7 @@ html {
   font-weight: 600;
   display: grid;
   place-items: center;
+  cursor: pointer;
 }
 .comments .leftcommentsection .buttonContainer .plus {
   border-top-left-radius: 0.5rem;
@@ -111,6 +112,7 @@ html {
   color: hsl(238deg, 40%, 52%);
   margin-left: auto !important;
   font-weight: 600;
+  cursor: pointer;
 }
 .comments .rightcommentsection .commentheader .editclass {
   color: hsl(238deg, 40%, 52%);
@@ -123,6 +125,7 @@ html {
   margin-left: auto;
   cursor: pointer;
   font-weight: 600;
+  cursor: pointer;
 }
 .comments .rightcommentsection .commentheader .avatar {
   width: 2rem;
@@ -162,12 +165,14 @@ html {
   .comments .leftcommentsection .deleteEditMobile {
     display: flex;
     gap: 1rem;
+    cursor: pointer;
   }
   .comments .leftcommentsection .replybtnMobile {
     display: block;
     color: hsl(238deg, 40%, 52%);
     margin-left: auto !important;
     font-weight: 600;
+    cursor: pointer;
   }
   .comments .leftcommentsection .buttonContainer {
     display: flex;
@@ -187,6 +192,7 @@ html {
     font-weight: 600;
     display: grid;
     place-items: center;
+    cursor: pointer;
   }
   .comments .leftcommentsection .buttonContainer .plus {
     border-top-left-radius: 0.5rem;
@@ -297,6 +303,7 @@ html {
   font-weight: 600;
   border-radius: 0.5rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 500px) {
@@ -393,6 +400,7 @@ html {
   color: white;
   font-weight: 600;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 @media (max-width: 500px) {
@@ -425,6 +433,7 @@ html {
   }
   .postcommentrelative .avatarButtonContainer .sendbtn {
     display: flex;
+    cursor: pointer;
   }
   .postcommentrelative .textinput {
     width: 100%;
@@ -447,6 +456,7 @@ html {
     color: white;
     font-weight: 600;
     border-radius: 0.5rem;
+    cursor: pointer;
   }
 }
 .deleteCommentOverlay {

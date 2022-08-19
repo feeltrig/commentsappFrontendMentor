@@ -12,7 +12,6 @@ const handleScorefn = (state, id, action) => {
   if (indexcounter !== -1) {
     if (action == "plus") {
       state[indexcounter].score++;
-      console.log(id);
       return;
     } else if (action == "minus") {
       state[indexcounter].score--;
