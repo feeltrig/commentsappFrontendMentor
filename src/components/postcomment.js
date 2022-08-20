@@ -1,3 +1,4 @@
+import { setAutoFreeze } from "immer";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import avatar from ".././design/images/avatars/image-ramsesmiron.webp";
@@ -80,6 +81,11 @@ const PostComment = ({
 
   // EDIT USER COMMENT
   const editCommentHandler = () => {
+    if (myComment == "") {
+      setaddreply(false);
+      return;
+    }
+
     if (isRelative && update) {
       dispatch(handleEditComment({ content: myComment, id: replyid }));
       setmyComment("");
