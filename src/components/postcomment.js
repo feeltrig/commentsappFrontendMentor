@@ -43,6 +43,11 @@ const PostComment = ({
 
   // APPEND NEW COMMENT
   const appendComment = () => {
+    if (myComment == "") {
+      setaddreply(false);
+      return;
+    }
+
     // generate id
     const createdAt = getDatefn();
     const user = mainAppState.currentUser;
@@ -70,15 +75,6 @@ const PostComment = ({
       return;
     }
 
-    // close if its a reply box
-    // if (isRelative) {
-    //   setaddreply(false);
-    //   setmyComment("");
-
-    //   return;
-    // }
-
-    // cleaners
     return;
   };
 
